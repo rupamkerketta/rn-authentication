@@ -15,21 +15,22 @@ const CustomInput = <T extends FieldValues>({
   ...props
 }: CustomInputProps<T>) => {
   return (
-    <View className="gap-2">
+    <View className="gap-1">
       <Controller
         name={name}
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
-            className="p-4 rounded-lg border border-gray-300"
+            className="p-4 rounded-lg border"
             {...props}
             onChangeText={onChange}
             onBlur={onBlur}
             value={value}
+            style={{ borderColor: error ? "crimson" : "#d1d5db" }}
           />
         )}
       />
-      <View className="h-6">
+      <View className="min-h-4 mb-4">
         {error && <Text className="text-red-500 mt-1">{error}</Text>}
       </View>
     </View>
