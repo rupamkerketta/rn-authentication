@@ -11,7 +11,10 @@ const ProtectedLayout = () => {
 
   return (
     <Stack>
-      <Stack.Screen name="index" options={{ headerTitle: "Home" }} />
+      <Stack.Screen
+        name="index"
+        options={{ headerTitle: "Home", headerShown: false }}
+      />
     </Stack>
   );
 };

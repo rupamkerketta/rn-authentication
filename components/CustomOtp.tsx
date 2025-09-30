@@ -11,10 +11,16 @@ import Animated, {
 const ANIMATION_DURATION = 220;
 
 type CustomOtpProps = {
-  activeDigit?: string;
+  activeDigit?: number;
+  currentOtpLength: number;
+  otpIndex: number;
 };
 
-const CustomOtp = ({ activeDigit }: CustomOtpProps) => {
+const CustomOtp = ({
+  activeDigit,
+  currentOtpLength,
+  otpIndex,
+}: CustomOtpProps) => {
   const textSize = useSharedValue(1);
   const textHeight = useSharedValue(0);
 
@@ -71,7 +77,13 @@ const CustomOtp = ({ activeDigit }: CustomOtpProps) => {
   return (
     <View className="bg-gray-200 p-4 rounded-3xl w-14 overflow-hidden h-20">
       <Animated.Text
-        style={[rTextStyleDefault]}
+        style={[
+          rTextStyleDefault,
+          {
+            color:
+              currentOtpLength === otpIndex ? "rgb(0 0 0 / 0.5)" : "#9ca3af",
+          },
+        ]}
         className="font-bold w-full text-center text-gray-400"
       >
         0
