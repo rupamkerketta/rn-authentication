@@ -119,16 +119,18 @@ export default function SignIn() {
         </CustomButton>
       </View>
 
-      <View className="w-full flex-row justify-center gap-2">
+      <View className="w-full flex-row justify-center gap-2 mt-2">
         <Text>Don't have an account?</Text>
-        <Link href="/(auth)/sign-up" className="font-semibold text-blue-500">
+        <Link href="/sign-up" className="font-semibold text-blue-500">
           <Text>Sign Up</Text>
         </Link>
       </View>
 
-      <SignInWith />
+      <View className="mt-6 w-full">
+        <SignInWith />
+      </View>
 
-      <View className="w-full min-h-4 m-4">
+      <View className="w-full min-h-4 m-4 mb-8">
         {errors.root?.message && (
           <Text className="text-red-500 text-center">
             {errors.root?.message || "Error"}
